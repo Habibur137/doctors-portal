@@ -9,7 +9,7 @@ const AvailableAppointment = ({ date }) => {
         Available Appointment on {format(date, "PP")}
       </h3>
       {/* all services come from av-treatment */}
-      <AvailableTreatment />
+      <AvailableTreatment date={date} />
     </div>
   );
 };
