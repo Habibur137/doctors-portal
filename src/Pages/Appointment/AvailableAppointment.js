@@ -4,7 +4,7 @@ import AvailableTreatment from "./AvailableTreatment";
 
 const AvailableAppointment = ({ date }) => {
   return (
-    <div>
+    <div className="lg:px-16">
       <h3 className="text-center text-white font-semibold text-2xl pt-8">
         Available Appointment on {format(date, "PP")}
       </h3>

@@ -10,56 +10,60 @@ const BookingModal = ({ name, slots, date }) => {
   };
   return (
     <div>
-      <input type="checkbox" id="booking" class="modal-toggle" />
-      <div class="modal modal-bottom sm:modal-middle">
-        <div class="modal-box">
-          <h3 class="font-bold text-lg mb-4 text-center">{name}</h3>
+      <input type="checkbox" id="booking" className="modal-toggle" />
+      <div className="modal modal-bottom sm:modal-middle">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg mb-4 text-center">{name}</h3>
           <form
             onSubmit={bookTreatment}
             className="grid grid-cols-1 gap-4 justify-items-center"
           >
             <input
               type="text"
-              value={format(date, "PP")}
+              value={format(date, "PP") || ""}
               name="date"
               readOnly
-              class="input  bg-white w-full max-w-xs"
+              className="input input-bordered w-full max-w-xs bg-white"
+              disabled
             />
             <select
               name="slot"
-              class="select select-bordered bg-white w-full max-w-xs"
+              className="select select-bordered bg-white w-full max-w-xs "
             >
-              {slots.map((slot) => (
-                <option value={slot}>{slot}</option>
+              {slots?.map((slot, index) => (
+                <option key={index} value={slot}>
+                  {slot}
+                </option>
               ))}
             </select>
             <input
               type="text"
               placeholder="Name"
-              value={name}
+              value={name || ""}
               readOnly
-              class="input input-bordered input-primary bg-white w-full max-w-xs"
+              disabled
+              className="input input-bordered w-full max-w-xs bg-white"
             />
             <input
               type="email"
               placeholder="Email"
-              class="input input-bordered input-primary bg-white w-full max-w-xs"
+              className="input input-bordered w-full max-w-xs bg-white"
             />
             <input
               type="text"
               placeholder="Phone"
-              class="input input-bordered input-primary bg-white w-full max-w-xs"
+              className="input input-bordered w-full max-w-xs bg-white"
             />
             <input
               type="submit"
               value="Submit"
-              class="input input-bordered input-primary bg-primary text-white font-bold w-full max-w-xs"
+              className="input input-bordered input-primary bg-primary text-white font-bold w-full max-w-xs"
             />
           </form>
-          <div class="modal-action">
+          <div className="modal-action">
             <label
-              for="booking"
-              class="btn btn-sm btn-circle absolute right-2 top-2"
+              htmlFor="booking"
+              className="btn btn-sm btn-circle absolute right-2 top-2"
             >
               ✕
             </label>
