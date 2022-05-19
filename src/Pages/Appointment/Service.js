@@ -15,7 +15,7 @@ const Service = ({ service, setTreatment }) => {
             onClick={() => setTreatment(service)}
             htmlFor="booking"
             className="btn btn-sm"
-            disabled={slots.length === 0}
+            disabled={slots?.length === 0}
           >
             BOOK APPOINTMENT
           </label>

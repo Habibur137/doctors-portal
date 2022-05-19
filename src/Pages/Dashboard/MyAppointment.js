@@ -30,7 +30,7 @@ const MyAppointment = () => {
         return res.json();
       })
       .then((data) => setAppointments(data));
-  }, [user]);
+  }, [user, navigate]);
   return (
     <div>
       <h2>my appointment {appointments.length}</h2>

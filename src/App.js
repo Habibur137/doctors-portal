@@ -10,6 +10,9 @@ import Navbar from "./Pages/Shared/Navbar";
 import RequireAuth from "./Pages/Shared/RequireAuth";
 import MyAppointment from "./Pages/Dashboard/MyAppointment";
 import MyReviews from "./Pages/Dashboard/MyReviews";
+import Users from "./Pages/Dashboard/Users";
+import AddDoctor from "./Pages/Dashboard/AddDoctor";
+import RequireAdmin from "./Pages/Shared/RequireAdmin";
 
 function App() {
   return (
@@ -35,6 +38,22 @@ function App() {
         >
           <Route index element={<MyAppointment />} />
           <Route path="myreview" element={<MyReviews />} />
+          <Route
+            path="users"
+            element={
+              <RequireAdmin>
+                <Users />
+              </RequireAdmin>
+            }
+          />
+          <Route
+            path="addDoctor"
+            element={
+              <RequireAdmin>
+                <AddDoctor />
+              </RequireAdmin>
+            }
+          />
         </Route>
 
         <Route path="/login" element={<Login />} />
